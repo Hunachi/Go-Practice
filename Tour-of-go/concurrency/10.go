@@ -30,7 +30,7 @@ func innerCrawl(mu sync.Mutex, results *map[string]bool,url string, depth int, f
 	}
 	innerResults := *results
 	r := innerResults[url]	
-	if r == false {
+	if !r {
 		mu.Lock()
 		body, urls, err := fetcher.Fetch(url)
 		innerResults[url] = true
